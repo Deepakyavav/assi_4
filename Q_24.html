@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">
+        JavaScript allows you to dynamically manipulate HTML content, making it possible to highlight words with more than eight characters.
+    </p>
+
+    <script>
+        const paragraph = document.getElementById("text");
+        const words = paragraph.textContent.split(" ");
+
+        const highlightedText = words.map(word => {
+            return word.length > 8 ? `<span class="highlight">${word}</span>` : word;
+        }).join(" ");
+
+        paragraph.innerHTML = highlightedText;
+    </script>
+</body>
+</html>

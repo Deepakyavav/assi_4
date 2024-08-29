@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+</head>
+<body>
+    <h2>TODO App</h2>
+    <input type="text" id="todoInput" placeholder="Enter a task">
+    <button id="addTodoButton">Add TODO</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        const addTodoButton = document.getElementById("addTodoButton");
+        const todoInput = document.getElementById("todoInput");
+        const todoList = document.getElementById("todoList");
+
+        addTodoButton.addEventListener("click", function() {
+            const task = todoInput.value.trim();
+            if (task !== "") {
+                const listItem = document.createElement("li");
+                listItem.textContent = task;
+                todoList.appendChild(listItem);
+                todoInput.value = ""; // Clear input field after adding
+            }
+        });
+    </script>
+</body>
+</html>

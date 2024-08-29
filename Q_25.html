@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move the Image</title>
+    <style>
+        #imageContainer {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        img {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="imageContainer">
+        <img src="https://via.placeholder.com/100" id="movingImage" alt="Movable Image">
+    </div>
+
+    <script>
+        const img = document.getElementById("movingImage");
+        let imgX = 0;
+        let imgY = 0;
+
+        document.addEventListener("keydown", function(event) {
+            const step = 10;
+            if (event.key === "ArrowUp") {
+                imgY -= step;
+            } else if (event.key === "ArrowDown") {
+                imgY += step;
+            } else if (event.key === "ArrowLeft") {
+                imgX -= step;
+            } else if (event.key === "ArrowRight") {
+                imgX += step;
+            }
+            img.style.transform = `translate(${imgX}px, ${imgY}px)`;
+        });
+    </script>
+</body>
+</html>

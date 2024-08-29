@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <style>
+        #progressBarContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #ccc;
+        }
+        #progressBar {
+            height: 100%;
+            width: 0;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+    </div>
+
+    <div style="height: 2000px; padding-top: 20px;">
+        Scroll down to see the progress bar fill up!
+    </div>
+
+    <script>
+        const progressBar = document.getElementById("progressBar");
+
+        window.addEventListener("scroll", function() {
+            const maxHeight = document.body.scrollHeight - window.innerHeight;
+            const percentage = (window.scrollY / maxHeight) * 100;
+            progressBar.style.width = percentage + "%";
+        });
+    </script>
+</body>
+</html>
