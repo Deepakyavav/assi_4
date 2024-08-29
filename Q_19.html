@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamically Adding List Items</title>
+    <style>
+        #message {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>What you'll learn</h2>
+    <ol id="learningList">
+        <!-- List items will be dynamically added here -->
+    </ol>
+    <button id="addItemButton">Add Next Item</button>
+    <p id="message"></p>
+
+    <script>
+        const listItems = [
+            "Understand the basics of JavaScript",
+            "Learn how to manipulate the DOM",
+            "Master asynchronous programming",
+            "Work with APIs and fetch data",
+            "Build interactive web applications",
+            "Learn about JavaScript frameworks and libraries"
+        ];
+
+        let currentIndex = 0;
+        const learningList = document.getElementById("learningList");
+        const addItemButton = document.getElementById("addItemButton");
+        const message = document.getElementById("message");
+
+        addItemButton.addEventListener("click", function() {
+            if (currentIndex < listItems.length) {
+                const listItem = document.createElement("li");
+                listItem.textContent = listItems[currentIndex];
+                learningList.appendChild(listItem);
+                currentIndex++;
+            } else {
+                message.textContent = "All items have been added.";
+                addItemButton.disabled = true; // Disable button after all items are added
+            }
+        });
+    </script>
+</body>
+</html>
